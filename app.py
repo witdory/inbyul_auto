@@ -18,6 +18,25 @@ driver.implicitly_wait(5)
 driver.find_element_by_css_selector('#react-root > section > main > article > div.rgFsT > div:nth-child(2) > div > p > a > span').click()  # 회원가입버튼
 
 
+def mail_open():
+    driver.execute_script('window.open("https://www.ruu.kr")')
+    print("ruu.kr 접속 성공!")
+    # ==========================================
+    driver.switch_to.window(driver.window_handles[1])
+    driver.implicitly_wait(5)
+    driver.find_element_by_css_selector('#id').click()
+    driver.find_element_by_css_selector('#id').send_keys(userid)
+    time.sleep(15)
+    driver.find_element_by_css_selector('#mailList').click()
+    driver.implicitly_wait(5)
+    driver.find_element_by_css_selector(
+        '#mail > table > tbody > tr > td:nth-child(2) > font').click()
+    driver.implicitly_wait(5)
+
+    driver.find_element_by_xpath("""//*[@id="view"]/div/div/p/a""").click()
+    driver.switch_to.window(driver.window_handles[2])
+    da.accept()
+    print("창 닫기 완료")
 
 _LENGTH = 12  # 12자리 # 숫자 + 대소문자
 string_pool = string.ascii_letters + string.digits +"1"+"e"  # 랜덤한 문자열 생성
@@ -44,7 +63,20 @@ driver.find_element_by_name('emailOrPhone').send_keys(userid+'@ruu.kr')
 driver.find_element_by_name('fullName').send_keys(name)
 driver.find_element_by_name('username').send_keys(userid)
 driver.find_element_by_name('password').send_keys(password)
-driver.find_element_by_css_selector('#react-root > section > main > article > div.rgFsT > div:nth-child(1) > div > form > div:nth-child(8) > div').click()
+driver.find_element_by_css_selector('#react-root > section > main > div > div > div:nth-child(1) > div > form > div:nth-child(8)').click()
+
+
+driver.implicitly_wait(5)
+driver.find_element_by_css_selector('#react-root > section > main > div > div > div:nth-child(1) > div > div.Igw0E.IwRSH.eGOV_._4EzTm.bkEs3.DhRcB > div > div > span > span:nth-child(3) > select > option:nth-child(18)').click()
+
+driver.find_element_by_css_selector('#react-root > section > main > div > div > div:nth-child(1) > div > div.Igw0E.IwRSH.eGOV_._4EzTm.lC6p0.g6RW6 > button').click()
+
+mail_open()
+
+
+
+
+
 
 
 
@@ -92,27 +124,9 @@ def st_login():
         '#container > div.body_wrap.loginskin > section.sub_2_col.clearfix > div > div > form > div.login_btn_box > input').click()
     print("로그인 성공!")
 
+'''
 
-def mail_open():
-    driver.execute_script('window.open("https://www.ruu.kr")')
-    print("ruu.kr 접속 성공!")
-    # ==========================================
-    driver.switch_to.window(driver.window_handles[1])
-    time.sleep(0.5)
-    driver.find_element_by_css_selector('#id').click()
-    driver.find_element_by_css_selector('#id').send_keys(userid)
-    time.sleep(2)
-    driver.find_element_by_css_selector('#mailList').click()
-    time.sleep(3)
-    driver.find_element_by_css_selector(
-        '#mail > table > tbody > tr > td:nth-child(2) > font').click()
-    time.sleep(1)
-
-    driver.find_element_by_xpath("""//*[@id="view"]/div/div/p/a""").click()
-    driver.switch_to.window(driver.window_handles[2])
-    da.accept()
-    print("창 닫기 완료")
-
+'''
 
 def stranger():
 
