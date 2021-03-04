@@ -18,6 +18,7 @@ driver.implicitly_wait(5)
 driver.find_element_by_css_selector('#react-root > section > main > article > div.rgFsT > div:nth-child(2) > div > p > a > span').click()  # 회원가입버튼
 
 
+
 def mail_open():
     driver.execute_script('window.open("https://www.ruu.kr")')
     print("ruu.kr 접속 성공!")
@@ -33,10 +34,11 @@ def mail_open():
         '#mail > table > tbody > tr > td:nth-child(2) > font').click()
     driver.implicitly_wait(5)
 
-    driver.find_element_by_xpath("""//*[@id="view"]/div/div/p/a""").click()
+    
     driver.switch_to.window(driver.window_handles[2])
     da.accept()
     print("창 닫기 완료")
+    
 
 _LENGTH = 12  # 12자리 # 숫자 + 대소문자
 string_pool = string.ascii_letters + string.digits +"1"+"e"  # 랜덤한 문자열 생성
@@ -73,6 +75,7 @@ driver.find_element_by_css_selector('#react-root > section > main > div > div > 
 
 mail_open()
 
+verify=driver.find_element_by_css_selector('#email_content > table > tbody > tr:nth-child(4) > td > table > tbody > tr > td > table > tbody > tr:nth-child(2) > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2)')
 
 
 
