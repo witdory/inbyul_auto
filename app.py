@@ -44,6 +44,7 @@ driver.find_element_by_name('emailOrPhone').send_keys(userid+'@ruu.kr')
 driver.find_element_by_name('fullName').send_keys(name)
 driver.find_element_by_name('username').send_keys(userid)
 driver.find_element_by_name('password').send_keys(password)
+driver.find_element_by_css_selector('#react-root > section > main > article > div.rgFsT > div:nth-child(1) > div > form > div:nth-child(8) > div').click()
 
 
 
